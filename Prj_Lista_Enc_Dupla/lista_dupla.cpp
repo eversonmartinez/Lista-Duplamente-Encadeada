@@ -7,13 +7,13 @@ Lista2* inicializa(){
 	return NULL;
 }
 
-/* inserção no início */
+/* inserï¿½ï¿½o no inï¿½cio */
 Lista2* insere_inicio (Lista2* l, int v){
 	Lista2* novo = (Lista2*) malloc(sizeof(Lista2));
 	novo->info = v;
 	novo->prox = l;
 	novo->ant = NULL;
-	/* verifica se lista não está vazia */
+	/* verifica se lista nï¿½o estï¿½ vazia */
 	if (l != NULL)
 		l->ant = novo;
  
@@ -35,14 +35,14 @@ bool vazia(Lista2* l){
 	return l==NULL;
 }
 
-/* função busca: busca um elemento na lista */
+/* funï¿½ï¿½o busca: busca um elemento na lista */
 Lista2* busca (Lista2* l, int v){
 	if (!vazia(l)){
 	 	for (Lista2* p=l; p!=NULL; p=p->prox)
 	 		if (p->info == v)
 	 			return p;
 	}
- 	return NULL; /* não achou o elemento ou a lista é vazia */
+ 	return NULL; /* nï¿½o achou o elemento ou a lista ï¿½ vazia */
 }
 
 void busca_msg (Lista2* l, int v){
@@ -52,20 +52,20 @@ void busca_msg (Lista2* l, int v){
 		cout << "Elemento " << v << " nao encontrado!\n";
 }
 
-/* função retira: retira elemento v da lista */
+/* funï¿½ï¿½o retira: retira elemento v da lista */
 Lista2* retira (Lista2* l, int v) {
  	Lista2* p = busca(l,v);
  	//1- Testa se achou?
 	if (p == NULL)
- 		return l; /* não achou o elemento: retorna lista inalterada */
+ 		return l; /* nï¿½o achou o elemento: retorna lista inalterada */
  	
 	//2- Testa casos de encontrar!
 	 /* retira elemento do encadeamento */
- 	if (l == p) //É o 1o nó-dado
+ 	if (l == p) //ï¿½ o 1o nï¿½-dado
  		l = p->prox;
- 	else //É nó-dado intermediário a último
+ 	else //ï¿½ nï¿½-dado intermediï¿½rio a ï¿½ltimo
  		p->ant->prox = p->prox;
- 	//Há nó-dado seguinte a p? Se sim, atualize o ant dele!	
+ 	//Hï¿½ nï¿½-dado seguinte a p? Se sim, atualize o ant dele!	
  	if (p->prox != NULL)
  		p->prox->ant = p->ant;
  	
@@ -78,13 +78,14 @@ Lista2* insere_fim (Lista2* l, int v){
 	if (vazia(l))	//verifica se a lista nao esta vazia
 		return insere_inicio(l, v);
 	
-	Lista2* novo = (Lista2*) malloc(sizeof(Lista2));//cria um novo nó separado
-	novo->info = v; //o elemento do nó foi passado na chamada da função
-	novo->prox = NULL; //será o último elemento da lista, portanto não tem nada posteriormente
+	Lista2* novo = (Lista2*) malloc(sizeof(Lista2));//cria um novo nï¿½ separado
+	novo->info = v; //o elemento do nï¿½ foi passado na chamada da funï¿½ï¿½o
+	novo->prox = NULL; //serï¿½ o ï¿½ltimo elemento da lista, portanto nï¿½o tem nada posteriormente
 	Lista2*p =l; //ponteiro auxiliar para passar pela lista
-	for(; p->prox != NULL; p = p->prox); //avança ate o fim da lista
-	novo->ant = p; //aqui juntamos o novo nó com a nossa lista
-	p->prox = novo; // aqui juntamos a nossa lista atual com o novo nó
- 
- 	return l; //retornamos a lista original, como utilizamos ponteiros as mudanças refletiram nela
+	for(; p->prox != NULL; p = p->prox); //avanï¿½a ate o fim da lista
+	novo->ant = p; //aqui juntamos o novo nï¿½ com a nossa lista
+	p->prox = novo; // aqui juntamos a nossa lista atual com o novo nï¿½
+	
+	cout << "Testando Branches";
+ 	return l; //retornamos a lista original, como utilizamos ponteiros as mudanï¿½as refletiram nela
 }
