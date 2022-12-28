@@ -85,6 +85,7 @@ Lista2* insere_fim (Lista2* l, int v){
 	for(; p->prox != NULL; p = p->prox); //avan�a ate o fim da lista
 	novo->ant = p; //aqui juntamos o novo n� com a nossa lista
 	p->prox = novo; // aqui juntamos a nossa lista atual com o novo n�
- 
+	
+	cout << "Testando Branches";
  	return l; //retornamos a lista original, como utilizamos ponteiros as mudan�as refletiram nela
 }
